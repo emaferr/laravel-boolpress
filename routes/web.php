@@ -13,10 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest Routes
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('articles', ArticleController::class)->only('index','show');
+
+// Admin Routes
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('dashboard');
+
+    Route::resource('articles', ArticleController::class);
+    
+});
+
+
