@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&display=swap);
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -14610,4 +14610,62 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+* {
+  font-family: "Maven Pro", sans-serif;
+}
+
+button {
+  background-color: #006cfa;
+  border-radius: 6px !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  font-weight: bold;
+  vertical-align: text-top;
+}
+button:hover {
+  background-color: #68D681 !important;
+}
+button a {
+  color: white !important;
+}
+
+footer {
+  background-color: #041631;
+}
+footer .social {
+  max-width: 30px;
+}
+
+.navbar {
+  font-size: 1rem;
+  text-decoration: none;
+}
+.navbar a {
+  color: #1f1f1f !important;
+}
+.navbar a:hover {
+  color: #68D681 !important;
+}
+.navbar h4 {
+  font-weight: 700;
+}
+
+main {
+  background-color: white;
+}
+
+.home_section {
+  background-color: #2E6DF1;
+}
+
+.big__title {
+  color: #68D681;
+  font-size: 4rem;
+  font-weight: 700;
+  padding-bottom: 1.5rem;
+}
+
+.medium__title {
+  font-size: 1.8rem;
 }

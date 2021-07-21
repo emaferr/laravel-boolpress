@@ -2,8 +2,24 @@
 
 @section('content')
 
-<div class="table-responsive container">
-    <h1 class="pb-2">Articles</h1>
+<style>
+.action{
+    display: flex;
+    padding: .5rem;
+}
+
+#trash:hover{
+    color: red;
+    background-color: transparent;
+}
+#trash{
+    background-color: transparent;
+    border: none;
+}
+</style>
+
+<div class="table-responsive container py-5">
+    <h1 class="">Articles</h1>
     <div class="text-right pb-3 px-3">
         <a href="{{route('admin.articles.create')}}"><i style="font-size: 2rem" class="fas fa-plus-circle"></i></a>
     </div>

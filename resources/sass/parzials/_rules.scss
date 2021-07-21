@@ -1,0 +1,26 @@
+*{
+    font-family: 'Maven Pro', sans-serif;
+}
+
+button{
+    background-color: #006cfa;
+    border-radius: 6px !important;
+    border: none !important;
+    font-size: .8rem !important;
+    font-weight: bold;
+    vertical-align: text-top;
+    &:hover{
+        background-color: #68D681 !important;
+    }
+    a{
+        color: white !important;
+    }
+}
+
+footer{
+    background-color: #041631;
+    .social{
+        max-width: 30px;
+    }
+    
+}

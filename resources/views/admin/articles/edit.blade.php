@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>COMICS EDIT</h1>
-<div class="container-xl pt-3">
+
+<div class="container-xl py-5">
+
+    <h1>ARTICLE EDIT</h1>
 
     @include('layouts.parzials.error')
     

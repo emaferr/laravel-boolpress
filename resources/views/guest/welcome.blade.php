@@ -2,6 +2,6 @@
 
 @section('content')
     
-    <h1>Welcome Page</h1>
+@include('guest/parzials/boolean')
 
 @endsection

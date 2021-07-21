@@ -7,5 +7,21 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&display=swap');
+
+// Variables
+@import 'parzials/variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // FontAwesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
+// Site
+@import 'parzials/rules';
+@import 'parzials/header';
+
+
+
+

@@ -1,0 +1,14 @@
+// Header
+.navbar{
+    font-size: 1rem;
+    text-decoration: none;
+    a{
+        color: #1f1f1f !important;
+        &:hover{
+            color: #68D681 !important;
+        }
+    }
+    h4{
+        font-weight: 700;
+    }
+}
