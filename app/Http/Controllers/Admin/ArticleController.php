@@ -41,14 +41,15 @@ class ArticleController extends Controller
 
             'image' => 'required',
             'title' => 'required | min:5 | max:100',
-            'autor' => 'required | min:5 | max:150',
             'body' => 'required',
-
+            'autor' => 'required | min:5 | max:150',
+         
         ]);
 
         Article::create($validate);
 
         return redirect('admin/articles');
+
     }
 
     /**
@@ -70,7 +71,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit',compact('article'));
     }
 
     /**
@@ -82,7 +83,19 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $validate = $request->validate([
+
+            'image' => 'required',
+            'title' => 'required | min:5 | max:100',
+            'body' => 'required',
+            'autor' => 'required | min:5 | max:150',
+            
+        ]);
+
+        $article->update($validate);
+
+        return redirect('admin/articles');
+
     }
 
     /**

@@ -27,7 +27,7 @@
                     <td>{{$article->body}}</td>
                     <td>{{$article->autor}}</td>
                     <td class="action d-flex">
-                        <a class="px-2" href="">EDIT</a>
+                        <a class="px-2" href="{{route('admin.articles.edit',$article->id)}}">EDIT</a>
                         <form action="{{route('admin.articles.destroy',$article->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
