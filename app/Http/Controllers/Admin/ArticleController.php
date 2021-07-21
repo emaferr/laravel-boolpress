@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.articles.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+
+            'image' => 'required',
+            'title' => 'required | min:5 | max:100',
+            'autor' => 'required | min:5 | max:150',
+            'body' => 'required',
+
+        ]);
+
+        Article::create($validate);
+
+        return redirect('admin/articles');
     }
 
     /**
@@ -82,6 +93,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect('admin/articles');
     }
 }

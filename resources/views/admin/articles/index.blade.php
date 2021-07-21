@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="table-responsive container">
+    <h1 class="pb-2">Articles</h1>
+    <div class="text-right pb-3 px-3">
+        <a href="{{route('admin.articles.create')}}"><i style="font-size: 2rem" class="fas fa-plus-circle"></i></a>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -22,7 +26,14 @@
                     <td>{{$article->title}}</td>
                     <td>{{$article->body}}</td>
                     <td>{{$article->autor}}</td>
-                    <td>View EDIT | DELETE</td>
+                    <td class="action d-flex">
+                        <a class="px-2" href="">EDIT</a>
+                        <form action="{{route('admin.articles.destroy',$article->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button id="trash" type="submit" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
