@@ -17,6 +17,12 @@ button{
     }
 }
 
+#trash{
+    &:hover{
+        background-color: transparent !important;
+    }
+}
+
 footer{
     background-color: #041631;
     .social{

@@ -247,12 +247,12 @@
 </div>
 
 {{-- Rubato da Boolean per fare il figo :) --}}
-<div class="home_section py-5">
+<div class="home_section py-4">
   <div class="container py-5">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center pb-5">
           <div class="col-lg-9 text-center">
-              <h2 class="">Parlano gli studenti: cos'è Boolean</h2>
-              <strong class="medium__title">Nessuno meglio di un Booleaner può raccontare l'esperienza in accademia: tra lezioni, serate di gaming e primi colloqui.</strong>
+              <h2 class="">Parlano gli studenti: cos'è boolBlog</h2>
+              <strong class="medium__title">Nessuno meglio di un Booleaner può raccontare boolBlog: tra post, commenti e tanti meme!!!</strong>
           </div>
       </div>
       <div class="row home-section__f-content align-items-center justify-content-center">

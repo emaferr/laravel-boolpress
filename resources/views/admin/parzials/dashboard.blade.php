@@ -1,4 +1,4 @@
-<div style="height: 620px" class="container py-5">
+<div style="height: 660px" class="container py-5">
     <div class="row">
     <div class="col-lg-4 col-md-6" style="margin-top: 20px">
                 <div class="card border-primary">
@@ -30,7 +30,7 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-9 text-right">
-                                <h1>0</h1>
+                                <h1>{{count($users)}}</h1>
                                 <h4> Users</h4>
                             </div>
                         </div>

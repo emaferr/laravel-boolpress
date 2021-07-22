@@ -6,11 +6,11 @@
 .action{
     display: flex;
     padding: .5rem;
+    align-items: center
 }
 
 #trash:hover{
     color: red;
-    background-color: transparent;
 }
 #trash{
     background-color: transparent;

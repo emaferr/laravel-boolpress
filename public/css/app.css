@@ -14630,6 +14630,10 @@ button a {
   color: white !important;
 }
 
+#trash:hover {
+  background-color: transparent !important;
+}
+
 footer {
   background-color: #041631;
 }
@@ -14657,6 +14661,14 @@ main {
 
 .home_section {
   background-color: #2E6DF1;
+}
+.home_section h2 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.home_section .medium__title {
+  font-size: 1.7rem;
 }
 
 .big__title {

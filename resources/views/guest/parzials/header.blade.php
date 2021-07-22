@@ -5,7 +5,7 @@
                 <img class="align-bottom" width="140" height="30" src="https://www.boolean.careers/images/misc/logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><i style="font-size: 1.2rem" class="fas fa-bars"></i></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -21,9 +21,9 @@
                             <a class="nav-link" href="{{url('/')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('articles.index')}}">Blog</a>
+                            <a class="nav-link mr-2" href="{{route('articles.index')}}">Blog</a>
                         </li>
-                        <li class="nav-item ml-2">
+                        <li class="nav-item">
                             <button class="home_button">
                                 <a style="color: white !important" class="nav-link" href="{{ route('login') }}">{{ __('Log in') }}</a> 
                             </button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {   
+        $users = User::all();
         $articles = Article::all();
-        return view('admin.home',compact('articles'));
+        return view('admin.home',compact('articles','users'));
     }
 
 }
