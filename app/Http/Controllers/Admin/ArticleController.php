@@ -105,6 +105,8 @@ class ArticleController extends Controller
 
         if(array_key_exists('image', $validate)){
 
+            Storage::delete($article->image);
+
             $file_path = Storage::put('article_images', $validate['image']);
 
             $validate['image'] = $file_path;
