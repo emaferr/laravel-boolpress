@@ -17,8 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $users = User::all();
-        $articles = Article::all();
+        $users = User::all()->sortByDesc('id');
+        $articles = Article::all()->sortByDesc('id');
         return view('admin.home',compact('articles','users'));
     }
 

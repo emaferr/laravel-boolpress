@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortByDesc('id');
         return view('admin.articles.index',compact('articles'));
     }
 
@@ -39,12 +40,20 @@ class ArticleController extends Controller
     {
         $validate = $request->validate([
 
-            'image' => 'required',
+            'image' => 'nullable | image | max: 2500',
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
          
         ]);
+
+        if(array_key_exists('image', $validate)){
+
+            $file_path = Storage::put('article_images', $validate['image']);
+
+            $validate['image'] = $file_path;
+
+        }
 
         Article::create($validate);
 
@@ -85,12 +94,22 @@ class ArticleController extends Controller
     {
         $validate = $request->validate([
 
-            'image' => 'required',
+            'image' => 'nullable | image | max: 2500',
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
             
         ]);
+
+        // $request->hasFile('image');
+
+        if(array_key_exists('image', $validate)){
+
+            $file_path = Storage::put('article_images', $validate['image']);
+
+            $validate['image'] = $file_path;
+
+        }
 
         $article->update($validate);
 

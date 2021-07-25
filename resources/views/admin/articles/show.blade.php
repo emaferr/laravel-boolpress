@@ -19,7 +19,7 @@
         <tbody>
             <tr>
                 <td>{{$article->id}}</td>
-                <td><img width="100" src="{{$article->image}}" alt="{{$article->title}}"></td>
+                <td><img width="100" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}"></td>
                 <td>{{$article->title}}</td>
                 <td>{{$article->body}}</td>
                 <td>{{$article->autor}}</td>

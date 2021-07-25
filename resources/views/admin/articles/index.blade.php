@@ -38,7 +38,7 @@
             @foreach ($articles as $article)
                 <tr>
                     <td>{{$article->id}}</td>
-                    <td><a href="{{route('admin.articles.show',$article->id)}}"><img width="100" src="{{$article->image}}" alt="{{$article->title}}"></a></td>
+                    <td><a href="{{route('admin.articles.show',$article->id)}}"><img width="100" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}"></a></td>
                     <td>{{$article->title}}</td>
                     <td>{{$article->body}}</td>
                     <td>{{$article->autor}}</td>

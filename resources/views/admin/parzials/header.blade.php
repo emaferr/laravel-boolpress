@@ -1,7 +1,7 @@
 <div id="app">
     <nav style="background-color: white" class="navbar navbar-expand-md fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img class="align-bottom" width="140" height="30" src="https://www.boolean.careers/images/misc/logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,20 +38,18 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
+                            <a class="nav-link" href="{{route('admin.dashboard')}}"> Dashboard <i class="fas fa-tachometer-alt"></i></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>

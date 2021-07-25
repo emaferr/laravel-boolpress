@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-xl py-5">
+<div class="container py-5">
 
     <h1>ARTICLE EDIT</h1>
 
@@ -10,15 +10,20 @@
     
     <div class="d-flex flex-column">
         <h2>Edit a article</h2>
-    <form action="{{route('admin.articles.update',$article->id)}}" method="POST">
+    <form action="{{route('admin.articles.update',$article->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="">Image</label>
+            <div class="form-group">
+                <label for="">Image</label>
+                <img width="100" src="{{asset('storage/' . $article->image)}}" alt="">
+                <input type="file" name="image" id="image">
+            </div>
+            {{-- <label for="">Image</label>
             <img width="100" src="{{$article->image}}" alt="" class="d-block pb-3">
             <input type="text" name="image" id="image" class="form-control" placeholder="Edit URL..."
                 aria-describedby="helpId" value="{{$article->image}}">
-            <small id="helpId" class="text-muted">Write the URL image of the article</small>
+            <small id="helpId" class="text-muted">Write the URL image of the article</small> --}}
         </div>
     
         <div class="form-group">
