@@ -31,4 +31,8 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->name('admin.')
     
 });
 
-
+// Categories Table 
+// - migration
+// - model
+// - controller (resources)
+// - seeder
