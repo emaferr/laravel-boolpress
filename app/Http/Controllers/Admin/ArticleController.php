@@ -103,7 +103,8 @@ class ArticleController extends Controller
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
-            
+            'category_id' => 'nullable | exists:categories,id'
+
         ]);
 
         // $request->hasFile('image');
