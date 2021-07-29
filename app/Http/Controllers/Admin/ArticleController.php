@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Exists;
 
 class ArticleController extends Controller
 {
@@ -46,6 +47,7 @@ class ArticleController extends Controller
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
+            'category_id' => 'nullable | exists:categories,id'
          
         ]);
 
@@ -82,7 +84,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('admin.articles.edit',compact('article'));
+        $categories = Category::all();
+        return view('admin.articles.edit',compact('article','categories'));
     }
 
     /**

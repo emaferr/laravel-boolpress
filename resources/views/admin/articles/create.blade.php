@@ -11,7 +11,6 @@
             <h2>Add a Article</h2>
             <form action="{{ route('admin.articles.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
         @error('image')
         <div class="alert alert-danger">{{$message}}</div>
         @enderror
@@ -52,6 +51,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+
             </form>
 
         </div>
