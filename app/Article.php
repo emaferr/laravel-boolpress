@@ -7,12 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Article extends Model
 {
-    protected $fillable = ['image','title','body','autor','category_id'];
-
-    // public function category() :BelongsTo
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
+    protected $fillable = ['image', 'title', 'body', 'autor', 'category_id'];
 
     /**
      * Get the category that owns the Article
@@ -24,5 +19,13 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
-    
+    /**
+     * The tags that belong to the Article
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
