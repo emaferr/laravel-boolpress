@@ -20,7 +20,7 @@ class Article extends Model
     }
 
     /**
-     * The tags that belong to the Article
+     * The roles that belong to the Article
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

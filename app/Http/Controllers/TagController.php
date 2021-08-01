@@ -17,7 +17,6 @@ class TagController extends Controller
         //
     }
 
-
     /**
      * Display the specified resource.
      *
@@ -28,4 +27,5 @@ class TagController extends Controller
     {
         //
     }
+
 }
