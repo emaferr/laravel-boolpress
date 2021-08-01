@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label for="tags">Tags</label>
                     <select multiple class="form-control" name="tags[]" id="tags">
-                        <option>Select a Tag</option>
+                        <option disabled>Select a Tag</option>
                         @if ($tags)
                             @foreach ($tags as $tag)
 

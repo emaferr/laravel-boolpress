@@ -20,7 +20,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc('id');
-        return view('admin.articles.index',compact('articles'));
+        return view('admin.articles.index', compact('articles'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $tags = Tag::all();
         $categories = Category::all();
         return view('admin.articles.create', compact('categories', 'tags'));
@@ -50,15 +50,14 @@ class ArticleController extends Controller
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
             'category_id' => 'nullable | exists:categories,id',
-            'tags' => 'exists:tags,id'
+            'tags' => 'nullable | exists:tags,id'
         ]);
 
-        if(array_key_exists('image', $validate)){
+        if (array_key_exists('image', $validate)) {
 
             $file_path = Storage::put('article_images', $validate['image']);
 
             $validate['image'] = $file_path;
-
         }
 
         $article = Article::create($validate);
@@ -66,7 +65,6 @@ class ArticleController extends Controller
         $article->tags()->attach($request->tags);
 
         return redirect('admin/articles');
-
     }
 
     /**
@@ -77,7 +75,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('admin.articles.show',compact('article'));
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
@@ -88,8 +86,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.articles.edit',compact('article','categories'));
+        return view('admin.articles.edit', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -108,24 +107,23 @@ class ArticleController extends Controller
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id'
         ]);
 
-        // $request->hasFile('image');
-
-        if(array_key_exists('image', $validate)){
+        if (array_key_exists('image', $validate)) {
 
             Storage::delete($article->image);
 
             $file_path = Storage::put('article_images', $validate['image']);
 
             $validate['image'] = $file_path;
-
         }
 
         $article->update($validate);
 
-        return redirect('admin/articles');
+        $article->tags()->sync($request->tags);
 
+        return redirect('admin/articles');
     }
 
     /**
