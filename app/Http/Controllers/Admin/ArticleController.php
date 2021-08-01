@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Tag;
 use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
@@ -28,9 +29,10 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.articles.create', compact('categories'));
+        return view('admin.articles.create', compact('categories', 'tags'));
     }
 
     /**
@@ -47,8 +49,8 @@ class ArticleController extends Controller
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
-            'category' => 'nullable | exists:categories,id'
-         
+            'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
 
         if(array_key_exists('image', $validate)){
@@ -59,7 +61,9 @@ class ArticleController extends Controller
 
         }
 
-        Article::create($validate);
+        $article = Article::create($validate);
+
+        $article->tags()->attach($request->tags);
 
         return redirect('admin/articles');
 
@@ -103,8 +107,7 @@ class ArticleController extends Controller
             'title' => 'required | min:5 | max:100',
             'body' => 'required',
             'autor' => 'required | min:5 | max:150',
-            'category_id' => 'nullable | exists:categories,id'
-
+            'category_id' => 'nullable | exists:categories,id',
         ]);
 
         // $request->hasFile('image');

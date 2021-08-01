@@ -11,15 +11,15 @@
             <h2>Add a Article</h2>
             <form action="{{ route('admin.articles.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-        @error('image')
-        <div class="alert alert-danger">{{$message}}</div>
-        @enderror
-        
+                @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
                 <div class="form-group">
                     <label for="">Image</label>
                     <input type="file" name="image" id="image">
                 </div>
-               
+
                 <div class="form-group">
                     <label for="">Title</label>
                     <input type="text" name="title" id="title" class="form-control" placeholder="Add title..."
@@ -45,8 +45,22 @@
                     <select class="form-control" name="category_id" id="category_id">
                         <option selected disabled>Select a category</option>
                         @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <select multiple class="form-control" name="tags[]" id="tags">
+                        <option>Select a Tag</option>
+                        @if ($tags)
+                            @foreach ($tags as $tag)
+
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+
+                            @endforeach
+                        @endif
                     </select>
                 </div>
 
